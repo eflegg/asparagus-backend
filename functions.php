@@ -89,26 +89,50 @@ add_filter( 'rest_contributor_query', function( $args, $request ) {
 }, 10, 2 );
 
 //Override temp CORS issues until frontend and backend domains match
-add_action('init', 'handle_preflight');
-function handle_preflight() {
-    $origin = get_http_origin();
-    if ($origin === 'http://locahost:3000') {
-        header("Access-Control-Allow-Origin: locahost:3000");
-        header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
-        header("Access-Control-Allow-Credentials: true");
-        header('Access-Control-Allow-Headers: Origin, X-Requested-With, X-WP-Nonce, Content-Type, Accept, Authorization');
-        if ('OPTIONS' == $_SERVER['REQUEST_METHOD']) {
-            status_header(200);
-            exit();
-        }
+// add_action('init', 'handle_preflight');
+// function handle_preflight() {
+//     $origin = get_http_origin();
+//     if ($origin === 'http://locahost:3000') {
+//         header("Access-Control-Allow-Origin: locahost:3000");
+//         header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+//         header("Access-Control-Allow-Credentials: true");
+//         header('Access-Control-Allow-Headers: Origin, X-Requested-With, X-WP-Nonce, Content-Type, Accept, Authorization');
+//         if ('OPTIONS' == $_SERVER['REQUEST_METHOD']) {
+//             status_header(200);
+//             exit();
+//         }
+//     }
+// }
+// add_filter('rest_authentication_errors', 'rest_filter_incoming_connections');
+// function rest_filter_incoming_connections($errors) {
+//     $request_server = $_SERVER['REMOTE_ADDR'];
+//     $origin = get_http_origin();
+//     if ($origin !== 'http://locahost:3000') return new WP_Error('forbidden_access', $origin, array(
+//         'status' => 403
+//     ));
+//     return $errors;
+// }
+
+function initCors( $value ) {
+    $origin_url = '*';
+  
+    // Check if production environment or not
+    if (ENVIRONMENT === 'production') {
+      $origin_url = 'https://asparagusmagazine.com';
     }
-}
-add_filter('rest_authentication_errors', 'rest_filter_incoming_connections');
-function rest_filter_incoming_connections($errors) {
-    $request_server = $_SERVER['REMOTE_ADDR'];
-    $origin = get_http_origin();
-    if ($origin !== 'http://locahost:3000') return new WP_Error('forbidden_access', $origin, array(
-        'status' => 403
-    ));
-    return $errors;
-}
+  
+    header( 'Access-Control-Allow-Origin: ' . $origin_url );
+    header( 'Access-Control-Allow-Methods: GET' );
+    header( 'Access-Control-Allow-Credentials: true' );
+    return $value;
+  }
+
+
+// ... initCors function
+
+add_action( 'rest_api_init', function() {
+
+	remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+
+	add_filter( 'rest_pre_serve_request', initCors);
+}, 15 );
