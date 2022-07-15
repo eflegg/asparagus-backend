@@ -1,12 +1,12 @@
 {
-    "key": "group_629a709b9a8cc",
-    "title": "Event",
+    "key": "group_62cf8daa472be",
+    "title": "Team Member",
     "fields": [
         {
-            "key": "field_629a709f32af1",
-            "label": "Date",
-            "name": "date",
-            "type": "date_picker",
+            "key": "field_62cf8db0d2f00",
+            "label": "Bio",
+            "name": "bio",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,14 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "F j, Y",
-            "first_day": 1
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         },
         {
-            "key": "field_629a70a590b15",
-            "label": "Location",
-            "name": "location",
+            "key": "field_62cf8e814f286",
+            "label": "Title",
+            "name": "title",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -44,7 +46,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "events"
+                "value": "team_members"
             }
         ]
     ],
@@ -56,5 +58,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657227432
+    "modified": 1657769612
 }

@@ -1,12 +1,12 @@
 {
-    "key": "group_629a709b9a8cc",
-    "title": "Event",
+    "key": "group_62cf2c5b5b1d1",
+    "title": "Issues",
     "fields": [
         {
-            "key": "field_629a709f32af1",
-            "label": "Date",
-            "name": "date",
-            "type": "date_picker",
+            "key": "field_62cf2dd2e204e",
+            "label": "Primary Cover Line",
+            "name": "primary_cover_line",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,14 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "F j, Y",
-            "first_day": 1
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_629a70a590b15",
-            "label": "Location",
-            "name": "location",
+            "key": "field_62cf8ac0424ad",
+            "label": "Secondary Cover Line",
+            "name": "secondary_cover_line",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -44,7 +46,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "events"
+                "value": "issues"
             }
         ]
     ],
@@ -56,5 +58,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657227432
+    "modified": 1657768647
 }
