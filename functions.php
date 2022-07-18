@@ -100,9 +100,7 @@ add_filter( 'rest_contributor_query', function( $args, $request ) {
  */
 function replace_headless_content_link_urls(string $content): string
 {
-    if (!is_graphql_request() && !defined('REST_REQUEST')) {
-        return $content;
-    }
+  
 
     // TODO: Get this value from an environment variable or the database.
     $frontend_app_url = 'http://localhost:3000';
