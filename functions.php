@@ -88,51 +88,27 @@ add_filter( 'rest_contributor_query', function( $args, $request ) {
     return $args;
 }, 10, 2 );
 
-//Override temp CORS issues until frontend and backend domains match
-// add_action('init', 'handle_preflight');
-// function handle_preflight() {
-//     $origin = get_http_origin();
-//     if ($origin === 'http://locahost:3000') {
-//         header("Access-Control-Allow-Origin: locahost:3000");
-//         header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
-//         header("Access-Control-Allow-Credentials: true");
-//         header('Access-Control-Allow-Headers: Origin, X-Requested-With, X-WP-Nonce, Content-Type, Accept, Authorization');
-//         if ('OPTIONS' == $_SERVER['REQUEST_METHOD']) {
-//             status_header(200);
-//             exit();
-//         }
-//     }
-// }
-// add_filter('rest_authentication_errors', 'rest_filter_incoming_connections');
-// function rest_filter_incoming_connections($errors) {
-//     $request_server = $_SERVER['REMOTE_ADDR'];
-//     $origin = get_http_origin();
-//     if ($origin !== 'http://locahost:3000') return new WP_Error('forbidden_access', $origin, array(
-//         'status' => 403
-//     ));
-//     return $errors;
-// }
 
-function initCors( $value ) {
-    $origin_url = '*';
-  
-    // Check if production environment or not
-    if (ENVIRONMENT === 'production') {
-      $origin_url = 'https://asparagusmagazine.com';
+
+
+/**
+ * Modify internal link URLs to point to the decoupled frontend app.
+ *
+ * @param string $content Post content.
+ *
+ * @return string Post content, with internal link URLs replaced.
+ */
+function replace_headless_content_link_urls(string $content): string
+{
+    if (!is_graphql_request() && !defined('REST_REQUEST')) {
+        return $content;
     }
-  
-    header( 'Access-Control-Allow-Origin: ' . $origin_url );
-    header( 'Access-Control-Allow-Methods: GET' );
-    header( 'Access-Control-Allow-Credentials: true' );
-    return $value;
-  }
 
+    // TODO: Get this value from an environment variable or the database.
+    $frontend_app_url = 'http://localhost:3000';
+    $site_url         = site_url();
 
-// ... initCors function
+    return str_replace('href="' . $site_url, 'data-internal-link="true" href="' . $frontend_app_url, $content);
+}
+add_filter('the_content', 'replace_headless_content_link_urls');
 
-add_action( 'rest_api_init', function() {
-
-	remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
-
-	add_filter( 'rest_pre_serve_request', initCors);
-}, 15 );

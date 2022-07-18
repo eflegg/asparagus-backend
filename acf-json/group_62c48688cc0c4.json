@@ -16,7 +16,8 @@
                 "id": ""
             },
             "post_type": [
-                "contributors"
+                "contributors",
+                "team_members"
             ],
             "taxonomy": "",
             "filters": [
@@ -28,8 +29,8 @@
                 "featured_image"
             ],
             "min": "",
-            "max": "",
-            "return_format": "id"
+            "max": 1,
+            "return_format": "object"
         },
         {
             "key": "field_62c486d9fb247",
@@ -45,7 +46,8 @@
                 "id": ""
             },
             "post_type": [
-                "contributors"
+                "contributors",
+                "team_members"
             ],
             "taxonomy": "",
             "filters": [
@@ -57,8 +59,8 @@
                 "featured_image"
             ],
             "min": "",
-            "max": "",
-            "return_format": "id"
+            "max": 1,
+            "return_format": "object"
         },
         {
             "key": "field_62c5f1d239480",
@@ -186,5 +188,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657751661
+    "modified": 1658010893
 }
