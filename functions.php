@@ -110,3 +110,36 @@ function replace_headless_content_link_urls(string $content): string
 }
 add_filter('the_content', 'replace_headless_content_link_urls');
 
+
+
+//add all data from custom post types as relation fields
+$post_types = array_merge(get_post_types(), cptui_get_post_type_slugs());
+
+foreach ($post_types as $type) {
+	add_filter(
+		'acf/rest_api/' . $type . '/get_fields',
+		function ($data, $response) use ($post_types) {
+			if ($response instanceof WP_REST_Response) {
+				$data = $response->get_data();
+			}
+
+			array_walk_recursive($data, 'get_fields_recursive', $post_types);
+
+			return $data;
+		},
+		10,
+		3
+	);
+}
+
+function get_fields_recursive($item)
+{
+	if (is_object($item)) {
+		$item->acf = array();
+
+		if ($fields = get_fields($item)) {
+			$item->acf = $fields;
+			array_walk_recursive($item->acf, 'get_fields_recursive');
+		}
+	}
+}
