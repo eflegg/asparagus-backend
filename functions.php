@@ -113,33 +113,64 @@ add_filter('the_content', 'replace_headless_content_link_urls');
 
 
 //add all data from custom post types as relation fields
-$post_types = array_merge(get_post_types(), cptui_get_post_type_slugs());
+<?php
 
-foreach ($post_types as $type) {
-	add_filter(
-		'acf/rest_api/' . $type . '/get_fields',
-		function ($data, $response) use ($post_types) {
-			if ($response instanceof WP_REST_Response) {
-				$data = $response->get_data();
+	function QikkerAcfPostObjectFix()
+	{
+
+		function qikker_fix_acf_post_ojects($value, $original_post_id, $field)
+		{
+
+			if ($field[ 'return_format' ] !== 'object') {
+
+				return $value;
+
 			}
 
-			array_walk_recursive($data, 'get_fields_recursive', $post_types);
+			remove_filter('acf/format_value/type=relationship', 'qikker_fix_acf_post_ojects', 20);
+			remove_filter('acf/format_value/type=post_object', 'qikker_fix_acf_post_ojects', 20);
+
+			if (is_array($value)) {
+
+				foreach ($value as $post) {
+
+					$formatted[] = convert_post_object_to_rest_response($post, $original_post_id);
+
+				}
+
+			} else {
+
+				$formatted = convert_post_object_to_rest_response($value, $original_post_id);
+
+			}
+
+			add_filter('acf/format_value/type=relationship', 'qikker_fix_acf_post_ojects', 20, 3);
+			add_filter('acf/format_value/type=post_object', 'qikker_fix_acf_post_ojects', 20, 3);
+
+			return $formatted;
+
+		}
+
+		function convert_post_object_to_rest_response($post, $original_post_id)
+		{
+
+			global $wp_rest_server;
+			$post_type = get_post_type_object($post->post_type);
+
+			$request = WP_REST_Request::from_url(rest_url(sprintf('wp/v2/%s/%d', $post_type->rest_base, $post->ID)));
+			$request = rest_do_request($request);
+			$data = $wp_rest_server->response_to_data($request, isset($_GET[ '_embed' ]));
+
+			// For the line below, see https://core.trac.wordpress.org/ticket/43502#ticket
+			$GLOBALS[ 'post' ] = $original_post_id;
 
 			return $data;
-		},
-		10,
-		3
-	);
-}
 
-function get_fields_recursive($item)
-{
-	if (is_object($item)) {
-		$item->acf = array();
-
-		if ($fields = get_fields($item)) {
-			$item->acf = $fields;
-			array_walk_recursive($item->acf, 'get_fields_recursive');
 		}
+
+		add_filter('acf/format_value/type=relationship', 'qikker_fix_acf_post_ojects', 20, 3);
+		add_filter('acf/format_value/type=post_object', 'qikker_fix_acf_post_ojects', 20, 3);
+
 	}
-}
+
+	add_action('rest_api_init', 'QikkerAcfPostObjectFix');
