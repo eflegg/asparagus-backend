@@ -113,7 +113,7 @@ add_filter('the_content', 'replace_headless_content_link_urls');
 
 
 //add all data from custom post types as relation fields
-<?php
+
 
 	function QikkerAcfPostObjectFix()
 	{
