@@ -3,6 +3,35 @@
     "title": "Home Page",
     "fields": [
         {
+            "key": "field_62d73707369b2",
+            "label": "Lead Story",
+            "name": "lead_story",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "articles"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": 1,
+            "max": 1,
+            "return_format": "object"
+        },
+        {
             "key": "field_62c77bce312de",
             "label": "Home Category One",
             "name": "home_category_one",
@@ -86,5 +115,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657301060
+    "modified": 1658272055
 }

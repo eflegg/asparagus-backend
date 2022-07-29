@@ -169,6 +169,44 @@
             "min": "",
             "max": 1,
             "return_format": "id"
+        },
+        {
+            "key": "field_62d84e67d9dab",
+            "label": "Time to Read",
+            "name": "time_to_read",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62d84e7ad9dac",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "type": "textarea",
+            "instructions": "This is the text that will appear on the article card",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 100,
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -188,5 +226,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1658010893
+    "modified": 1658343086
 }
