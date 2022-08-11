@@ -292,6 +292,7 @@
             ],
             "min": "",
             "max": 1,
+<<<<<<< HEAD
             "return_format": "object"
         },
         {
@@ -328,6 +329,17 @@
             "type": "text",
             "instructions": "Add the Twitter handle of someone you'd like to tag when sharing this story",
             "required": 0,
+=======
+            "return_format": "id"
+        },
+        {
+            "key": "field_62d84e67d9dab",
+            "label": "Time to Read",
+            "name": "time_to_read",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+>>>>>>> d4b969352125ead5b2eca7173e80a1d07e749ecb
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -341,12 +353,21 @@
             "maxlength": ""
         },
         {
+<<<<<<< HEAD
             "key": "field_62ead16092d5f",
             "label": "Contributor Instagram Handle",
             "name": "contributor_instagram_handle",
             "type": "text",
             "instructions": "Add the Instagram handle of someone you'd like to tag when sharing this story",
             "required": 0,
+=======
+            "key": "field_62d84e7ad9dac",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "type": "textarea",
+            "instructions": "This is the text that will appear on the article card",
+            "required": 1,
+>>>>>>> d4b969352125ead5b2eca7173e80a1d07e749ecb
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -355,6 +376,7 @@
             },
             "default_value": "",
             "placeholder": "",
+<<<<<<< HEAD
             "prepend": "",
             "append": "",
             "maxlength": ""
@@ -377,6 +399,11 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+=======
+            "maxlength": 100,
+            "rows": "",
+            "new_lines": ""
+>>>>>>> d4b969352125ead5b2eca7173e80a1d07e749ecb
         }
     ],
     "location": [
@@ -396,5 +423,9 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
+<<<<<<< HEAD
     "modified": 1659712886
+=======
+    "modified": 1658343086
+>>>>>>> d4b969352125ead5b2eca7173e80a1d07e749ecb
 }
