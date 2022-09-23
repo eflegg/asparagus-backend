@@ -3,12 +3,48 @@
     "title": "Article",
     "fields": [
         {
+            "key": "field_63052dd0743ec",
+            "label": "Publication Date",
+            "name": "publication_date",
+            "type": "date_picker",
+            "instructions": "Choose the date this article originally appeared. If today is its first appearance, choose today!",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 0
+        },
+        {
+            "key": "field_62d84e7ad9dac",
+            "label": "Dek",
+            "name": "dek",
+            "type": "textarea",
+            "instructions": "This is the text that will appear on the article card",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 130,
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_62c4868dfb246",
             "label": "Writer",
             "name": "writer",
             "type": "relationship",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -29,6 +65,68 @@
                 "featured_image"
             ],
             "min": "",
+            "max": 1,
+            "return_format": "object"
+        },
+        {
+            "key": "field_630e5537255da",
+            "label": "Secondary Author?",
+            "name": "secondary_author",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Yes": "Yes",
+                "No": "No"
+            },
+            "allow_null": 1,
+            "other_choice": 0,
+            "default_value": "No",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_631a1876403ce",
+            "label": "Secondary Author Name",
+            "name": "secondary_author_name",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_630e5537255da",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "contributors",
+                "team_members"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": 1,
             "max": 1,
             "return_format": "object"
         },
@@ -63,12 +161,31 @@
             "return_format": "object"
         },
         {
+            "key": "field_62d84e67d9dab",
+            "label": "Time to Read",
+            "name": "time_to_read",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_62c5f1d239480",
             "label": "Award Winner",
             "name": "award_winner",
             "type": "radio",
             "instructions": "Check yes if this article has won an award!",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -87,12 +204,71 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_62ead0558ce23",
+            "label": "Award Title",
+            "name": "award_title",
+            "type": "text",
+            "instructions": "If this article has won an award, enter the title of that award here",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c5f1d239480",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62ed353e6285f",
+            "label": "Award Graphic",
+            "name": "award_graphic",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c5f1d239480",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_62c5f20a39481",
             "label": "Award Nominee",
             "name": "award_nominee",
             "type": "radio",
             "instructions": "Check yes if this article has been nominated but hasn't won.",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -109,6 +285,33 @@
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_62ead07c8ce24",
+            "label": "Nominated Award Title",
+            "name": "nominated_award_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c5f20a39481",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_62cf2f426d3c9",
@@ -140,7 +343,7 @@
             "name": "appears_in",
             "type": "relationship",
             "instructions": "Select the issue this article appears in",
-            "required": 0,
+            "required": 1,
             "conditional_logic": [
                 [
                     {
@@ -168,14 +371,41 @@
             ],
             "min": "",
             "max": 1,
-            "return_format": "id"
+            "return_format": "object"
         },
         {
-            "key": "field_62d84e67d9dab",
-            "label": "Time to Read",
-            "name": "time_to_read",
+            "key": "field_62eacb8089167",
+            "label": "Print Title",
+            "name": "print_title",
             "type": "text",
             "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62cf2f426d3c9",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62ead13392d5e",
+            "label": "Contributor Twitter handle",
+            "name": "contributor_twitter_handle",
+            "type": "text",
+            "instructions": "Add the Twitter handle of someone you'd like to tag when sharing this story",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -190,12 +420,12 @@
             "maxlength": ""
         },
         {
-            "key": "field_62d84e7ad9dac",
-            "label": "Excerpt",
-            "name": "excerpt",
-            "type": "textarea",
-            "instructions": "This is the text that will appear on the article card",
-            "required": 1,
+            "key": "field_62ead16092d5f",
+            "label": "Contributor Instagram Handle",
+            "name": "contributor_instagram_handle",
+            "type": "text",
+            "instructions": "Add the Instagram handle of someone you'd like to tag when sharing this story",
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -204,9 +434,28 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": 100,
-            "rows": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62ead17192d60",
+            "label": "Contributor Facebook Link",
+            "name": "contributor_facebook_link",
+            "type": "text",
+            "instructions": "Add the Facebook page of someone you'd like to tag when sharing this story",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -226,5 +475,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1658343086
+    "modified": 1663018276
 }

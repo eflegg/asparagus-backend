@@ -3,23 +3,28 @@
     "title": "General Page",
     "fields": [
         {
-            "key": "field_62c4c8b687c34",
-            "label": "Text Block",
-            "name": "text_block",
-            "type": "textarea",
+            "key": "field_62ed2b9195fc9",
+            "label": "Header",
+            "name": "header",
+            "type": "image",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -39,5 +44,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657063629
+    "modified": 1659725773
 }

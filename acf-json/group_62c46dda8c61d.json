@@ -20,6 +20,155 @@
             "maxlength": 250,
             "rows": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_62e077591d592",
+            "label": "Social Media Handle",
+            "name": "social_media_handle",
+            "type": "text",
+            "instructions": "add one social media handle here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e078622f735",
+            "label": "Social Media Link",
+            "name": "social_media_link",
+            "type": "text",
+            "instructions": "Link to the social media handle here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e0802c6f82c",
+            "label": "Which social media network?",
+            "name": "which_social_media_network",
+            "type": "radio",
+            "instructions": "Pick one!",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Instagram": "Instagram",
+                "Twitter": "Twitter",
+                "Facebook": "Facebook"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_62e07fcd6f82a",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "Do you write a recurring column? Feel free to put that here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e0800c6f82b",
+            "label": "Website",
+            "name": "website",
+            "type": "text",
+            "instructions": "Don't include https:\/\/ ! It will be included in the link programatically",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e1d75c1ce48",
+            "label": "Headshot",
+            "name": "headshot",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6308047d1ba81",
+            "label": "Contributor",
+            "name": "contributor",
+            "type": "radio",
+            "instructions": "Don't change this unless I ask you to!",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "true": "true",
+                "false": "false"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "true",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -36,8 +185,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "featured_image"
+    ],
     "active": true,
     "description": "",
-    "modified": 1657046784
+    "modified": 1663601367
 }

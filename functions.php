@@ -179,3 +179,38 @@ add_filter( 'acf/rest_api/recursive/types', function( $types ) {
 
 //attempt to get featured image of relationship field
 
+
+
+
+//Return all posts, not just 100
+add_action( 'rest_articles_query', 'articles_override_per_page' );
+/* 
+ * params is the query array passed to WP_Query
+*/
+function articles_override_per_page( $params ) {
+    if ( isset( $params ) AND isset( $params[ 'posts_per_page' ] ) ) {
+        // $params[ 'posts_per_page' ] = PHP_INT_MAX;
+        $params['per_page']["maximum"]=300;
+        return $params;
+    }
+    return $params;
+}
+add_action( 'rest_contributors_query', 'contributors_override_per_page' );
+/* 
+ * params is the query array passed to WP_Query
+*/
+function contributors_override_per_page( $query_params ) {
+    // if ( isset( $params ) AND isset( $params[ 'posts_per_page' ] ) ) {
+    //     $params[ 'posts_per_page' ]["maximum"] = 200;
+    // }
+    // return $params;
+    $query_params['per_page']["maximum"]=300;
+    return $query_params;
+}
+function maximum_api_filter($query_params) {
+    $query_params['per_page']["maximum"]=300;
+    return $query_params;
+}
+add_filter('rest_contributors_collection_params', 'maximum_api_filter');
+add_filter('rest_articles_collection_params', 'maximum_api_filter');
+

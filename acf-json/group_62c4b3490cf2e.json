@@ -3,10 +3,43 @@
     "title": "Stockist",
     "fields": [
         {
-            "key": "field_62c4b3565391c",
-            "label": "Stockist Website",
-            "name": "stockist_website",
-            "type": "url",
+            "key": "field_62e83dd352850",
+            "label": "Province",
+            "name": "province",
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "British Columbia": "British Columbia",
+                "Alberta": "Alberta",
+                "Saskatchewan": "Saskatchewan",
+                "Manitoba": "Manitoba",
+                "Ontario": "Ontario",
+                "Quebec": "Quebec",
+                "New Brunswick": "New Brunswick",
+                "Newfoundland and Labrador": "Newfoundland and Labrador",
+                "Nova Scotia": "Nova Scotia",
+                "Prince Edward Island": "Prince Edward Island",
+                "Yukon": "Yukon"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_62e83ca50fa1d",
+            "label": "Stockist Name",
+            "name": "stockist_name",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -16,7 +49,67 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e83cdd0fa1e",
+            "label": "Stockist Address",
+            "name": "stockist_address",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62e83cf90fa1f",
+            "label": "Stockist Phone Number",
+            "name": "stockist_phone_number",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62c4b3565391c",
+            "label": "Stockist Website",
+            "name": "stockist_website",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -36,5 +129,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1657058173
+    "modified": 1659649397
 }
