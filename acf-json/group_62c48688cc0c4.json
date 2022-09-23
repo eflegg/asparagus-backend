@@ -180,6 +180,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_62d84e67d9dab",
+            "label": "Time to Read",
+            "name": "time_to_read",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_62c5f1d239480",
             "label": "Award Winner",
             "name": "award_winner",
@@ -263,6 +282,65 @@
             "mime_types": ""
         },
         {
+            "key": "field_62ead0558ce23",
+            "label": "Award Title",
+            "name": "award_title",
+            "type": "text",
+            "instructions": "If this article has won an award, enter the title of that award here",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c5f1d239480",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_62ed353e6285f",
+            "label": "Award Graphic",
+            "name": "award_graphic",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c5f1d239480",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_62c5f20a39481",
             "label": "Award Nominee",
             "name": "award_nominee",
@@ -285,6 +363,33 @@
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_62ead07c8ce24",
+            "label": "Nominated Award Title",
+            "name": "nominated_award_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_62c5f20a39481",
+                        "operator": "==",
+                        "value": "Yes"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_62ead07c8ce24",
@@ -434,6 +539,10 @@
             },
             "default_value": "",
             "placeholder": "",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 47f70ae3e79ffdc8f24c346927643b852432d20a
             "prepend": "",
             "append": "",
             "maxlength": ""
